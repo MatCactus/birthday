@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const Home: NextPage = () => {
     return (
-        <div className="h-screen w-screen font-semibold text-lg px-8 flex flex-row items-center justify-evenly">
+        <div className="h-screen w-screen font-semibold text-lg px-8 flex flex-row items-center justify-evenly portrait:flex-col">
             <body className="bg-bg" />
             <motion.div
                 initial={{ opacity: "0%", width: "185vw" }}
