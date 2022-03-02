@@ -9,7 +9,7 @@ const Home: NextPage = () => {
                 <iframe
                     src="https://embed.waze.com/iframe?zoom=17&lat=46.8388593&lon=-0.621037&pin=1"
                     width="300"
-                    className="rounded-xl rounded-b-none shadow-2xl m-2"
+                    className="rounded-xl rounded-b-none shadow-2xl m-2 portrait:mt-10"
                     height="380"
                 ></iframe>
                 <iframe
