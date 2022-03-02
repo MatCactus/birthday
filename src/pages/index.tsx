@@ -22,7 +22,7 @@ const Home: NextPage = () => {
                 ></iframe>
                 <a
                     target="_blank"
-                    rel="noopener"
+                    rel="noreferrer"
                     className="underline italic m-2 p-4 text-sm bg-box shadow-2xl text-text-ice flex justify-center items-center"
                     href="https://www.google.fr/maps/place/11+Rue+Sainte-Radegonde,+79140+Ciri%C3%A8res/@46.8388314,-0.6217533,19.25z/data=!4m5!3m4!1s0x4807aa95f62a96a9:0x1725130cbd3dc528!8m2!3d46.8389303!4d-0.621256"
                 >
