@@ -2,7 +2,8 @@ import type { NextPage } from "next";
 
 const Home: NextPage = () => {
     return (
-        <div className="h-screen w-screen bg-bg font-serif px-8 flex flex-row items-center justify-evenly">
+        <div className="h-screen w-screen font-serif px-8 flex flex-row items-center justify-evenly">
+            <body className="bg-bg" />
             <div className=""></div>
             <div className="flex flex-col">
                 <iframe
