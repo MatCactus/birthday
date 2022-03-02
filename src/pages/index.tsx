@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const Home: NextPage = () => {
     return (
-        <div className="h-screen w-screen font-semibold text-lg px-8 flex flex-row items-center justify-evenly portrait:flex-col">
+        <div className="h-screen w-screen font-semibold text-lg px-8 flex flex-row items-center justify-evenly portrait:flex-col portrait:mt-10">
             <body className="bg-bg" />
             <motion.div
                 initial={{ opacity: "0%", width: "185vw" }}
@@ -16,7 +16,7 @@ const Home: NextPage = () => {
                 <iframe
                     src="https://embed.waze.com/iframe?zoom=17&lat=46.8388593&lon=-0.621037&pin=1"
                     width="300"
-                    className="rounded-t-xl shadow-2xl m-2 portrait:mt-10"
+                    className="rounded-t-xl shadow-2xl m-2"
                     height="380"
                     title="11, Rue de la Fontaine, Cirières. 79140"
                 ></iframe>
