@@ -3,11 +3,8 @@ import { motion } from "framer-motion";
 
 const Home: NextPage = () => {
     return (
-        <div className="h-screen w-screen font-semibold text-lg px-8 flex flex-row items-center justify-evenly portrait:flex-col portrait:mt-10">
-            <div
-                style={{ width: "185vw" }}
-                className="bg-box rounded-xl shadow-2xl ml-2 mr-10 p-6 px-12 text-text-ice break-words"
-            >
+        <div className="h-screen w-screen font-semibold text-lg px-8 flex flex-row items-center landscape:justify-evenly portrait:flex-col portrait:mt-10">
+            <div className="bg-box rounded-xl shadow-2xl ml-2 mr-10 portrait:mr-2 p-6 px-12 text-text-ice break-words w-full">
                 Module de Listing des trucs à faire et des trucs apportés / par
                 qui, pour qui, pour quoi
             </div>
