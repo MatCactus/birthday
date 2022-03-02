@@ -4,14 +4,13 @@ import { motion } from "framer-motion";
 const Home: NextPage = () => {
     return (
         <div className="h-screen w-screen font-semibold text-lg px-8 flex flex-row items-center justify-evenly portrait:flex-col portrait:mt-10">
-            <body className="bg-bg" />
-            <motion.div
-                initial={{ opacity: "0%", width: "185vw" }}
-                animate={{ opacity: "100%" }}
-                className="bg-box rounded-xl shadow-2xl ml-2 mr-10 p-6 px-12 text-text-ice"
+            <div
+                style={{ width: "185vw" }}
+                className="bg-box rounded-xl shadow-2xl ml-2 mr-10 p-6 px-12 text-text-ice break-words"
             >
-                Module de Listing des Choses
-            </motion.div>
+                Module de Listing des trucs à faire et des trucs apportés / par
+                qui, pour qui, pour quoi
+            </div>
             <div className="flex flex-col">
                 <iframe
                     src="https://embed.waze.com/iframe?zoom=17&lat=46.8388593&lon=-0.621037&pin=1"
