@@ -1,11 +1,60 @@
 import type { NextPage } from "next";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+
+// Initialize Cloud Firestore through Firebase
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+import { doc, onSnapshot } from "firebase/firestore";
+
+const firebaseApp = initializeApp({
+    apiKey: "AIzaSyD7V9qSwCeh7ZBDx8zpEW9tPvspvbBLZ-M",
+    authDomain: "our-birthday.firebaseapp.com",
+    databaseURL: "https://our-birthday-default-rtdb.firebaseio.com",
+    projectId: "our-birthday",
+    storageBucket: "our-birthday.appspot.com",
+    messagingSenderId: "136022329746",
+    appId: "1:136022329746:web:363450a97e710e850a994b",
+    measurementId: "G-MZP257C4GV",
+});
+
+const db = getFirestore();
 
 const Home: NextPage = () => {
+    const [cardsList, setCardsList] = useState([]);
+
+    useEffect(() => {
+        const unsub = onSnapshot(doc(db, "our-birthday", "list"), doc => {
+            const cards: { name: string; count: string }[] = doc.data().cards;
+            let newCardsList = [];
+            cards.forEach((e, i) =>
+                newCardsList.push(
+                    <div
+                        key={i}
+                        className="flex flex-row justify-between hover:bg-bg transition-colors duration-150 p-1 px-2 rounded-lg"
+                    >
+                        <div>{e.name}</div>
+                        <div>{e.count}</div>
+                    </div>
+                )
+            );
+            if (newCardsList.length === 0)
+                newCardsList = [
+                    <div key="0" className="italic p-2">
+                        Nothing to see Here ..
+                    </div>,
+                ];
+            setCardsList(newCardsList);
+        });
+        return () => {
+            unsub();
+        };
+    }, []);
+
     return (
-        <div className="flex flex-col gap-6 w-full justify-center items-center p-4">
-            <div className="flex justify-center items-center text-text-ice text-sm w-full p-4 bg-box rounded-xl">
-                Lalalalalalala
+        <div className="flex flex-col gap-6 w-full justify-center items-center p-6">
+            <div className="flex flex-col justify-center text-text-ice text-sm w-full py-4 px-10 bg-box rounded-xl">
+                {cardsList}
             </div>
             <div className="border-b" style={{ width: 250 }}></div>
             <div
