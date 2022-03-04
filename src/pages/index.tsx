@@ -25,7 +25,10 @@ const Home: NextPage = () => {
                     className="flex justify-center items-center text-text-ice underline italic text-sm w-full p-4 bg-box"
                     href="https://www.google.fr/maps/place/11+Rue+Sainte-Radegonde,+79140+Ciri%C3%A8res/@46.8388314,-0.6217533,19.25z/data=!4m5!3m4!1s0x4807aa95f62a96a9:0x1725130cbd3dc528!8m2!3d46.8389303!4d-0.621256"
                 >
-                    <motion.p whileTap={{ scale: 0.95 }}>
+                    <motion.p
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
                         11, Rue Sainte Radegonde, 79140, Cirières
                     </motion.p>
                 </a>
