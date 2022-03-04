@@ -3,29 +3,36 @@ import { motion } from "framer-motion";
 
 const Home: NextPage = () => {
     return (
-        <div className="h-screen w-screen font-semibold text-lg px-8 flex flex-row items-center landscape:justify-evenly portrait:flex-col portrait:mt-10">
-            <div className="bg-box rounded-xl shadow-2xl ml-2 mr-10 portrait:mr-2 p-6 px-12 text-text-ice break-words w-full">
-                Module de Listing des trucs à faire et des trucs apportés / par
-                qui, pour qui, pour quoi
+        <div className="flex flex-col gap-6 w-full justify-center items-center">
+            <div className="px-4 pt-4 w-full">
+                <div className="flex justify-center items-center text-text-ice text-sm w-full p-4 bg-box rounded-xl">
+                    Lalalalalalala
+                </div>
             </div>
-            <div className="flex flex-col">
+            <div className="border-b" style={{ width: 250 }}></div>
+            <div
+                className="flex flex-col justify-between items-center gap-4"
+                style={{ width: 300 }}
+            >
                 <iframe
                     src="https://embed.waze.com/iframe?zoom=17&lat=46.8388593&lon=-0.621037&pin=1"
                     width="300"
-                    className="rounded-t-xl shadow-2xl m-2"
+                    className="rounded-t-xl"
                     height="380"
                     title="11, Rue de la Fontaine, Cirières. 79140"
                 ></iframe>
                 <a
                     target="_blank"
                     rel="noreferrer"
-                    className="underline italic m-2 p-4 text-sm bg-box shadow-2xl text-text-ice flex justify-center items-center"
+                    className="flex justify-center items-center text-text-ice underline italic text-sm w-full p-4 bg-box"
                     href="https://www.google.fr/maps/place/11+Rue+Sainte-Radegonde,+79140+Ciri%C3%A8res/@46.8388314,-0.6217533,19.25z/data=!4m5!3m4!1s0x4807aa95f62a96a9:0x1725130cbd3dc528!8m2!3d46.8389303!4d-0.621256"
                 >
-                    11, Rue Sainte Radegonde, 79140, Cirières
+                    <motion.p whileTap={{ scale: 0.95 }}>
+                        11, Rue Sainte Radegonde, 79140, Cirières
+                    </motion.p>
                 </a>
                 <iframe
-                    className="rounded-b-xl shadow-2xl m-2"
+                    className="rounded-b-xl"
                     src="https://open.spotify.com/embed/playlist/1v7ivWXEULN754Brx37NxU?utm_source=generator&theme=0"
                     width="300"
                     height="380"

@@ -8,7 +8,6 @@ function MyApp({ Component, pageProps }) {
             animate={{ opacity: "100%", translateY: "0px" }}
             transition={{ duration: "0.5" }}
         >
-            <body className="bg-bg" />
             <Component {...pageProps} />
         </motion.div>
     );
