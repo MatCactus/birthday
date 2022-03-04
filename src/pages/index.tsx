@@ -3,11 +3,9 @@ import { motion } from "framer-motion";
 
 const Home: NextPage = () => {
     return (
-        <div className="flex flex-col gap-6 w-full justify-center items-center">
-            <div className="px-4 pt-4 w-full">
-                <div className="flex justify-center items-center text-text-ice text-sm w-full p-4 bg-box rounded-xl">
-                    Lalalalalalala
-                </div>
+        <div className="flex flex-col gap-6 w-full justify-center items-center p-4">
+            <div className="flex justify-center items-center text-text-ice text-sm w-full p-4 bg-box rounded-xl">
+                Lalalalalalala
             </div>
             <div className="border-b" style={{ width: 250 }}></div>
             <div
