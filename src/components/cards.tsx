@@ -31,7 +31,7 @@ type Cards =
       }[];
 
 const createCard = data => {
-    console.log(data);
+    fetch("/api/db", { method: "CREATE" });
 };
 
 const Cards = props => {
@@ -119,7 +119,7 @@ const Cards = props => {
                     createCard(newCard);
                     setNewCard("");
                 }}
-                className="flex flex-row justify-between items-center gap-3 w-full"
+                className="flex flex-row justify-between items-center w-full"
             >
                 <AnimatePresence>
                     <TextInput
@@ -131,13 +131,15 @@ const Cards = props => {
                         <motion.button
                             initial={{ opacity: 0, width: 0 }}
                             animate={{
-                                opacity: 100,
+                                opacity: 1,
                                 width: "auto",
+                                marginLeft: "12px",
                                 transition: { duration: 0.2 },
                             }}
                             exit={{
                                 opacity: 0,
                                 width: 0,
+                                marginLeft: 0,
                                 transition: { duration: 0.2 },
                             }}
                             type="submit"
