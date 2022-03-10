@@ -6,9 +6,13 @@ import Icon from "@mdi/react";
 
 type ValueOfArray<T> = T extends Array<infer Item> ? Item : never;
 
-const Card: FC<
+const Item: FC<
     LiHTMLAttributes<HTMLInputElement> & {
-        e: ValueOfArray<Cards>;
+        e: {
+            name: string;
+            id: string;
+            quantity: string;
+        };
         i: number;
     }
 > = props => {
@@ -68,9 +72,9 @@ const Card: FC<
                     initial="hidden"
                     animate="visible"
                     exit="removed"
-                    key={`${e.id}-${e.data.length}`}
+                    key={`${e.id}-${e.quantity}`}
                 >
-                    {e.data.length}
+                    {e.quantity}
                 </motion.div>
                 {!isHovered ? (
                     ""
@@ -109,4 +113,4 @@ const Card: FC<
     );
 };
 
-export default Card;
+export default Item;

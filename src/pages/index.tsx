@@ -6,9 +6,7 @@ import Cards from "../components/cards";
 const Home: NextPage = () => {
     return (
         <div className="flex flex-col gap-6 w-full justify-center items-center p-6">
-            <div className="flex flex-col justify-center text-text-ice text-sm w-full py-4 px-10 bg-box rounded-xl">
-                {<Cards />}
-            </div>
+            <Cards />
             <div className="border-b" style={{ width: 250 }}></div>
             <div
                 className="flex flex-col justify-between items-center gap-4"
