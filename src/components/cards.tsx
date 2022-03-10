@@ -63,6 +63,21 @@ export const createItem = async (data: {
     await setDoc(docRef, { cards: cards });
 };
 
+export const deleteItem = async (id: string, item: string) => {
+    const docRef = doc(db, "db/list");
+    const cards: Cards = await (await getDoc(docRef)).data().cards;
+    console.log(
+        cards.find(e => e.id === id).data.findIndex(e => e.id === item)
+    );
+    cards
+        .find(e => e.id === id)
+        .data.splice(
+            cards.find(e => e.id === id).data.findIndex(e => e.id === item),
+            1
+        );
+    await setDoc(docRef, { cards: cards });
+};
+
 export const deleteCard = async data => {
     const docRef = doc(db, "db/list");
     const cards: Cards = await (await getDoc(docRef)).data().cards;

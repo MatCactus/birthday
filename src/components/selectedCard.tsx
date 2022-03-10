@@ -66,6 +66,7 @@ const SelectedCard: FC<JSX.IntrinsicElements["div"]> = props => {
                                                     id={e.id}
                                                     e={e}
                                                     i={i}
+                                                    cardId={card.id}
                                                 />
                                             </div>
                                         ))
@@ -98,7 +99,7 @@ const SelectedCard: FC<JSX.IntrinsicElements["div"]> = props => {
                                                 setNewItem(e.target.value)
                                             }
                                             value={newItem}
-                                            label="Compléter la Liste"
+                                            label="Nom"
                                         />
                                         <TextInput
                                             onChange={e =>

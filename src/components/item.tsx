@@ -1,7 +1,7 @@
 import { FC, LiHTMLAttributes, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { mdiDeleteEmpty } from "@mdi/js";
-import Cards, { deleteCard } from "./cards";
+import Cards, { deleteCard, deleteItem } from "./cards";
 import Icon from "@mdi/react";
 
 type ValueOfArray<T> = T extends Array<infer Item> ? Item : never;
@@ -14,9 +14,10 @@ const Item: FC<
             quantity: string;
         };
         i: number;
+        cardId: string;
     }
 > = props => {
-    const { e, i } = props;
+    const { e, i, cardId } = props;
 
     const [isHovered, setIsHovered] = useState(false);
 
@@ -47,6 +48,7 @@ const Item: FC<
             key={e.id}
             onHoverStart={() => setIsHovered(true)}
             onHoverEnd={() => setIsHovered(false)}
+            onTap={() => setIsHovered(true)}
         >
             <div className="break-all">{e.name}</div>
             <div className="flex items-center ml-3">
@@ -97,7 +99,7 @@ const Item: FC<
                         whileHover={{ scale: 1.2, rotate: 20 }}
                         key={`formSubmit-${i}`}
                         onClick={() => {
-                            deleteCard(e.id);
+                            deleteItem(cardId, e.id);
                         }}
                         whileTap={{
                             scale: 0.9,
