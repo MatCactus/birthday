@@ -102,17 +102,12 @@ const Cards = props => {
         const unsub = onSnapshot(doc(db, "db", "list"), doc => {
             const cards: Cards = doc.data().cards;
             setCardsList(cards);
+            if (!cards.some(e => e.id === selectedCard)) setSelectedCard(null);
         });
         return () => {
             unsub();
         };
     }, []);
-
-    useEffect(() => {
-        if (document.getElementById(selectedCard) === null)
-            return setSelectedCard(null);
-        console.log(selectedCard);
-    }, [cardsList]);
 
     return (
         <>
@@ -207,16 +202,16 @@ const Cards = props => {
                         initial="hidden"
                         animate="visible"
                         exit="removed"
+                        key="selectedCard"
                     >
                         <div className="border-b" style={{ width: 250 }}></div>
                         <div className="flex flex-col justify-center text-text-ice text-sm w-full py-4 px-10 bg-box rounded-xl">
-                            <SelectedCard
-                                key={selectedCard}
-                                id={selectedCard}
-                            />
+                            <SelectedCard cardId={selectedCard} />
                         </div>
                     </motion.div>
-                ) : null}
+                ) : (
+                    <></>
+                )}
             </AnimatePresence>
         </>
     );

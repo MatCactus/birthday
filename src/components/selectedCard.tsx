@@ -8,8 +8,10 @@ import Item from "./item";
 
 type ValueOfArray<T> = T extends Array<infer Item> ? Item : never;
 
-const SelectedCard: FC<JSX.IntrinsicElements["div"]> = props => {
-    const { id } = props;
+const SelectedCard: FC<
+    JSX.IntrinsicElements["div"] & { cardId: string }
+> = props => {
+    const { cardId } = props;
 
     const [isHovered, setIsHovered] = useState(false);
 
@@ -18,7 +20,7 @@ const SelectedCard: FC<JSX.IntrinsicElements["div"]> = props => {
     const [card, setCard] = useState(null as ValueOfArray<Cards>);
 
     useEffect(() => {
-        getCardData(id).then(e => setCard(e));
+        getCardData(cardId).then(e => setCard(e));
     });
 
     return (
@@ -43,7 +45,7 @@ const SelectedCard: FC<JSX.IntrinsicElements["div"]> = props => {
                             }}
                             whileHover={{ scale: 1.2, rotate: 20 }}
                             onClick={() => {
-                                deleteCard(id);
+                                deleteCard(cardId);
                             }}
                             whileTap={{
                                 scale: 0.9,
@@ -85,7 +87,7 @@ const SelectedCard: FC<JSX.IntrinsicElements["div"]> = props => {
                                             name: newItem,
                                             quantity: newItemQuantity,
                                         },
-                                        id: id,
+                                        id: cardId,
                                     });
                                     setNewItem("");
                                     setNewItemQuantity("");
